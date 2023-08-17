@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('tasks.index');
 });
-Route::resource('tasks', TaskController::class);
-Route::get('/task/change/status/{id}', [TaskController::class, 'changeStatus'])->name('task.change.status');
 
 Auth::routes();
 
