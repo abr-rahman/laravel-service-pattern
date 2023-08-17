@@ -29,19 +29,9 @@ Class TaskService implements TaskServiceInterface
 
     public function update(array $attributes, int $id)
     {
-        // $task = Task::find($id);
-        dd('id');
-        // $updatedTask = $task->update($attributes);
-        // return $updatedTask;
-
-        if (is_integer($attributes)) {
-            $bindingObject = $this->model::find($id);
-            $bindingObject->update($attributes);
-            return $bindingObject;
-        }
-
-        $task->update($attributes);
-        return $bindingObject;
+        $task = Task::find($id);
+        $updatedTask = $task->update($attributes);
+        return $updatedTask;
     }
 
     // Move To Delete

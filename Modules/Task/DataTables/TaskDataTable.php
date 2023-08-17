@@ -33,13 +33,12 @@ class TaskDataTable extends DataTable
                 }
             })
             ->addColumn('priority', function ($row) {
-                if ($row->priority == 1) {
+                if ($row->priority == 'Heigh') {
                     $html = '<div class="form-check">';
                     $html .= '<span class="btn-sm btn-success">Heigh</span>';
                     $html .= '</div>';
                     return $html;
                 } else {
-
                     $html = '<div class="form-check form-switch">';
                     $html .= '<span class="btn-sm btn-danger">Low</span>';
                     $html .= '</div>';

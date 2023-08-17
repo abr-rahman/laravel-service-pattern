@@ -54,18 +54,18 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(UpdateTaskRequest $request, $id)
     {
-        $task = $this->taskService->update($request->validated(), $task);
-        dd('ok');
+        $task = $this->taskService->update($request->validated(), $id);
         return back()->with('success', 'Updated successfully!');
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy($id)
     {
-        $task = $task->delete();
+        // $task = $task->delete();
+        $task = $this->taskService->delete($id);
         return response()->json('Deleted successfully!');
     }
 
