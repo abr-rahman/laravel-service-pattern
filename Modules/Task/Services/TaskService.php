@@ -6,7 +6,10 @@ use function is_integer;
 
 use Modules\Task\Entities\Task;
 use Modules\Task\Interfaces\TaskServiceInterface;
-
+/**
+ * Task 2: Interface Implementation
+ * TaskServiceInterface is a interface
+ */
 Class TaskService implements TaskServiceInterface
 {
     public function all()

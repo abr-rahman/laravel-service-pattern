@@ -12,6 +12,10 @@ use Modules\Task\Interfaces\TaskServiceInterface;
 
 class TaskController extends Controller
 {
+    /**
+     * Task 3: Encapsulation
+     * Here encapsulation is done by protected
+     */
     protected $taskService;
 
     public function __construct(TaskServiceInterface $taskService)
@@ -19,7 +23,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
     /**
-     * Display a listing of the resource.
+     * Task 1: Class Inheritance
+     * TaskDataTable is a class
+     * Then Request is a class
      */
     public function index(Request $request, TaskDataTable $dtaTable)
     {
