@@ -22,9 +22,9 @@ class UpdateTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required' . $this->id,
-            'phone' => 'required',
-            'image' => 'nullable',
+            'task' => 'required' . $this->id,
+            'priority' => 'nullable',
+            'status' => 'nullable',
             'description' => 'nullable',
         ];
     }

@@ -25,13 +25,27 @@ class TaskDataTable extends DataTable
                 if ($row->status == 1) {
 
                     $html = '<div class="form-check form-switch">';
-                    $html .= '<input class="form-check-input change_status" data-url="' . route('task.change.status', [$row->id]) . '" style="width: 34px; border-radius: 10px; height: 14px !important;  background-color: #2ea074; margin-left: -7px;" type="checkbox" checked />';
+                    $html .= '<input class="form-switch change_status" data-url="' . route('task.change.status', [$row->id]) . '" style="width: 34px; border-radius: 10px; height: 14px !important;  background-color: #2ea074; margin-left: -7px;" type="checkbox" checked />';
                     $html .= '</div>';
                     return $html;
                 } else {
 
                     $html = '<div class="form-check form-switch">';
-                    $html .= '<input class="form-check-input change_status" data-url="' . route('task.change.status', [$row->id]) . '" style="width: 34px; border-radius: 10px; height: 14px !important; margin-left: -7px;" type="checkbox" />';
+                    $html .= '<input class="form-switch change_status" data-url="' . route('task.change.status', [$row->id]) . '" style="width: 34px; border-radius: 10px; height: 14px !important; margin-left: -7px;" type="checkbox" />';
+                    $html .= '</div>';
+                    return $html;
+                }
+            })
+            ->addColumn('priority', function ($row) {
+                if ($row->priority == 1) {
+                    $html = '<div class="form-check">';
+                    $html .= '<span class="btn-sm btn-success">Heigh</span>';
+                    $html .= '</div>';
+                    return $html;
+                } else {
+
+                    $html = '<div class="form-check form-switch">';
+                    $html .= '<span class="btn-sm btn-danger">Low</span>';
                     $html .= '</div>';
                     return $html;
                 }
@@ -47,7 +61,7 @@ class TaskDataTable extends DataTable
 
                 return $html;
             })
-            ->rawColumns(['action', 'status']);
+            ->rawColumns(['action', 'status', 'priority']);
     }
 
     /**
@@ -96,7 +110,7 @@ class TaskDataTable extends DataTable
                   ->width(60)
                   ->addClass('text-center'),
             Column::make('task'),
-            Column::make('priority'),
+            Column::computed('priority'),
             Column::computed('status'),
             Column::make('created_at'),
         ];
